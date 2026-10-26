@@ -1,0 +1,53 @@
+communication_network:
+  consolidate_channels: true
+  num_agents: 4
+  topology: path
+environment:
+  assignment_filling: false
+  max_tasks: 8
+  name: JiraTicketEnvironment
+experiment:
+  collusion:
+    agent_order: random
+    colluder_selection: first_and_last
+    one_bit:
+      enabled: true
+      mode: none
+      bonus_points: 5
+  max_concurrent_runs: 4
+  output_dir: experiments/collusion/outputs/pilot2_nc_silent
+  seeds:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  sweeps:
+  - colluder_counts:
+    - 2
+    name: pilot2_nc_silent
+    num_agents:
+    - 4
+    prompt_variants:
+    - simple
+    secret_channel_enabled:
+    - true
+    topologies:
+    - path
+  tag: pilot2_nc_silent
+llm_models:
+- label: openai_gpt4o_mini
+  llm:
+    openrouter:
+      model: Qwen/Qwen2.5-7B-Instruct
+      params:
+        max_tokens: 1500
+        temperature: 0.7
+    provider: openrouter
+simulation:
+  max_conversation_steps: 3
+  max_iterations: 1
+  max_planning_rounds: 4
+  seed: 1
+  tags:
+  - pilot2_nc_silent

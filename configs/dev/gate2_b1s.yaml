@@ -1,0 +1,51 @@
+communication_network:
+  consolidate_channels: true
+  num_agents: 4
+  topology: path
+environment:
+  assignment_filling: false
+  max_tasks: 8
+  name: JiraTicketEnvironment
+experiment:
+  collusion:
+    agent_order: random
+    colluder_selection: first_and_last
+    one_bit:
+      enabled: true
+      mode: shuffled_bit
+      bonus_points: 5
+      bank_path: experiments/collusion/outputs/bank_provisional.json
+  max_concurrent_runs: 2
+  output_dir: experiments/collusion/outputs/gate2_b1s
+  seeds:
+  - 1
+  - 2
+  sweeps:
+  - colluder_counts:
+    - 2
+    name: gate2_b1s
+    num_agents:
+    - 4
+    prompt_variants:
+    - simple
+    secret_channel_enabled:
+    - true
+    topologies:
+    - path
+  tag: gate2_b1s
+llm_models:
+- label: openai_gpt4o_mini
+  llm:
+    openrouter:
+      model: Qwen/Qwen2.5-7B-Instruct
+      params:
+        max_tokens: 1500
+        temperature: 0.7
+    provider: openrouter
+simulation:
+  max_conversation_steps: 3
+  max_iterations: 1
+  max_planning_rounds: 4
+  seed: 1
+  tags:
+  - gate2_b1s

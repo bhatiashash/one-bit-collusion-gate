@@ -1,0 +1,64 @@
+simulation:
+  max_iterations: 1
+  max_planning_rounds: 4
+  max_conversation_steps: 3
+  seed: 1
+  tags:
+  - m14_d_r2
+environment:
+  name: JiraTicketEnvironment
+  assignment_filling: false
+  max_tasks: 8
+communication_network:
+  topology: path
+  num_agents: 4
+  consolidate_channels: true
+llm_models:
+- label: openai_gpt4o_mini
+  llm:
+    provider: openrouter
+    openrouter:
+      model: Qwen/Qwen2.5-14B-Instruct-AWQ
+      params:
+        max_tokens: 1500
+        temperature: 0.7
+experiment:
+  tag: m14_d_r2
+  output_dir: experiments/collusion/outputs/m14_d_r2
+  max_concurrent_runs: 10
+  seeds:
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  collusion:
+    colluder_selection: first_and_last
+    agent_order: random
+  sweeps:
+  - name: m14_d_r2
+    topologies:
+    - path
+    num_agents:
+    - 4
+    colluder_counts:
+    - 2
+    secret_channel_enabled:
+    - false
+    prompt_variants:
+    - control
