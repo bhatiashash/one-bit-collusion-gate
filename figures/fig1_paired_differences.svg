@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="324" viewBox="0 0 880 324" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="13" fill="#1f2328">
-<rect width="880" height="324" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="324" viewBox="0 0 900 324" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="13" fill="#1f2328">
+<rect width="900" height="324" fill="#ffffff"/>
 <text x="186" y="91.0" text-anchor="end" fill="#1f2328">7B, pooled (n = 30)</text>
 <text x="186" y="125.0" text-anchor="end" fill="#1f2328">7B, batch 1 (n = 10)</text>
 <text x="186" y="159.0" text-anchor="end" fill="#1f2328">7B, batch 2 (n = 20)</text>
 <text x="186" y="193.0" text-anchor="end" fill="#1f2328">14B (n = 20)</text>
-<text x="186" y="227.0" text-anchor="end" fill="#59636e">32B (n = 20), set aside</text>
-<text x="186" y="261.0" text-anchor="end" fill="#59636e">GPT-5 mini (n = 20), set aside</text>
-<text x="350.0" y="40" text-anchor="middle" font-weight="600">One bit minus silence (B1 - NC)</text>
+<text x="186" y="227.0" text-anchor="end" fill="#59636e">32B, set aside</text>
+<text x="186" y="261.0" text-anchor="end" fill="#59636e">GPT-5 mini, set aside</text>
+<text x="350.0" y="40" text-anchor="middle" fill="#1f2328" font-weight="600">One bit minus silence (B1 - NC)</text>
 <line x1="200.0" y1="60" x2="200.0" y2="274" stroke="#d1d9e0"/>
 <text x="200.0" y="292" text-anchor="middle" fill="#59636e">-10</text>
 <line x1="250.0" y1="60" x2="250.0" y2="274" stroke="#d1d9e0"/>
@@ -46,46 +46,46 @@
 <line x1="211.3360316635342" y1="252.0" x2="211.3360316635342" y2="262.0" stroke="#8c959f" stroke-width="2"/>
 <line x1="285.02856911798693" y1="252.0" x2="285.02856911798693" y2="262.0" stroke="#8c959f" stroke-width="2"/>
 <circle cx="250.51078839948036" cy="257.0" r="5" fill="#ffffff" stroke="#8c959f" stroke-width="2"/>
-<text x="350.0" y="312" text-anchor="middle" fill="#59636e">Paired difference in coalition advantage (points)</text>
-<text x="710.0" y="40" text-anchor="middle" font-weight="600">Real bit minus shuffled bit (B1 - B1S)</text>
-<line x1="560.0" y1="60" x2="560.0" y2="274" stroke="#d1d9e0"/>
-<text x="560.0" y="292" text-anchor="middle" fill="#59636e">-10</text>
-<line x1="610.0" y1="60" x2="610.0" y2="274" stroke="#d1d9e0"/>
-<text x="610.0" y="292" text-anchor="middle" fill="#59636e">-5</text>
-<line x1="660.0" y1="60" x2="660.0" y2="274" stroke="#d1d9e0"/>
-<text x="660.0" y="292" text-anchor="middle" fill="#59636e">0</text>
-<line x1="710.0" y1="60" x2="710.0" y2="274" stroke="#d1d9e0"/>
-<text x="710.0" y="292" text-anchor="middle" fill="#59636e">+5</text>
-<line x1="760.0" y1="60" x2="760.0" y2="274" stroke="#d1d9e0"/>
-<text x="760.0" y="292" text-anchor="middle" fill="#59636e">+10</text>
-<line x1="810.0" y1="60" x2="810.0" y2="274" stroke="#d1d9e0"/>
-<text x="810.0" y="292" text-anchor="middle" fill="#59636e">+15</text>
-<line x1="860.0" y1="60" x2="860.0" y2="274" stroke="#d1d9e0"/>
-<text x="860.0" y="292" text-anchor="middle" fill="#59636e">+20</text>
-<line x1="660.0" y1="60" x2="660.0" y2="274" stroke="#1f2328" stroke-dasharray="4 3"/>
-<line x1="616.1035296243097" y1="87.0" x2="704.1591768920773" y2="87.0" stroke="#0969da" stroke-width="2"/>
-<line x1="616.1035296243097" y1="82.0" x2="616.1035296243097" y2="92.0" stroke="#0969da" stroke-width="2"/>
-<line x1="704.1591768920773" y1="82.0" x2="704.1591768920773" y2="92.0" stroke="#0969da" stroke-width="2"/>
-<circle cx="659.4771122632842" cy="87.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
-<line x1="598.5071725762059" y1="121.0" x2="796.134586245465" y2="121.0" stroke="#0969da" stroke-width="2"/>
-<line x1="598.5071725762059" y1="116.0" x2="598.5071725762059" y2="126.0" stroke="#0969da" stroke-width="2"/>
-<line x1="796.134586245465" y1="116.0" x2="796.134586245465" y2="126.0" stroke="#0969da" stroke-width="2"/>
-<circle cx="692.6536712599092" cy="121.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
-<line x1="599.9974382296107" y1="155.0" x2="685.2901274349942" y2="155.0" stroke="#0969da" stroke-width="2"/>
-<line x1="599.9974382296107" y1="150.0" x2="599.9974382296107" y2="160.0" stroke="#0969da" stroke-width="2"/>
-<line x1="685.2901274349942" y1="150.0" x2="685.2901274349942" y2="160.0" stroke="#0969da" stroke-width="2"/>
-<circle cx="642.8888327649718" cy="155.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
-<line x1="660.5867719126055" y1="189.0" x2="762.2381710458299" y2="189.0" stroke="#0969da" stroke-width="2"/>
-<line x1="660.5867719126055" y1="184.0" x2="660.5867719126055" y2="194.0" stroke="#0969da" stroke-width="2"/>
-<line x1="762.2381710458299" y1="184.0" x2="762.2381710458299" y2="194.0" stroke="#0969da" stroke-width="2"/>
-<circle cx="709.8223288274553" cy="189.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
-<line x1="722.2995782082796" y1="223.0" x2="820.0454680784683" y2="223.0" stroke="#8c959f" stroke-width="2"/>
-<line x1="722.2995782082796" y1="218.0" x2="722.2995782082796" y2="228.0" stroke="#8c959f" stroke-width="2"/>
-<line x1="820.0454680784683" y1="218.0" x2="820.0454680784683" y2="228.0" stroke="#8c959f" stroke-width="2"/>
-<circle cx="771.7788567351281" cy="223.0" r="5" fill="#ffffff" stroke="#8c959f" stroke-width="2"/>
-<line x1="665.7401221850622" y1="257.0" x2="741.194955561423" y2="257.0" stroke="#8c959f" stroke-width="2"/>
-<line x1="665.7401221850622" y1="252.0" x2="665.7401221850622" y2="262.0" stroke="#8c959f" stroke-width="2"/>
-<line x1="741.194955561423" y1="252.0" x2="741.194955561423" y2="262.0" stroke="#8c959f" stroke-width="2"/>
-<circle cx="702.5476991308084" cy="257.0" r="5" fill="#ffffff" stroke="#8c959f" stroke-width="2"/>
-<text x="710.0" y="312" text-anchor="middle" fill="#59636e">Paired difference in coalition advantage (points)</text>
+<text x="350.0" y="312" text-anchor="middle" fill="#59636e">Paired difference (points)</text>
+<text x="730.0" y="40" text-anchor="middle" fill="#1f2328" font-weight="600">Real bit minus shuffled bit (B1 - B1S)</text>
+<line x1="580.0" y1="60" x2="580.0" y2="274" stroke="#d1d9e0"/>
+<text x="580.0" y="292" text-anchor="middle" fill="#59636e">-10</text>
+<line x1="630.0" y1="60" x2="630.0" y2="274" stroke="#d1d9e0"/>
+<text x="630.0" y="292" text-anchor="middle" fill="#59636e">-5</text>
+<line x1="680.0" y1="60" x2="680.0" y2="274" stroke="#d1d9e0"/>
+<text x="680.0" y="292" text-anchor="middle" fill="#59636e">0</text>
+<line x1="730.0" y1="60" x2="730.0" y2="274" stroke="#d1d9e0"/>
+<text x="730.0" y="292" text-anchor="middle" fill="#59636e">+5</text>
+<line x1="780.0" y1="60" x2="780.0" y2="274" stroke="#d1d9e0"/>
+<text x="780.0" y="292" text-anchor="middle" fill="#59636e">+10</text>
+<line x1="830.0" y1="60" x2="830.0" y2="274" stroke="#d1d9e0"/>
+<text x="830.0" y="292" text-anchor="middle" fill="#59636e">+15</text>
+<line x1="880.0" y1="60" x2="880.0" y2="274" stroke="#d1d9e0"/>
+<text x="880.0" y="292" text-anchor="middle" fill="#59636e">+20</text>
+<line x1="680.0" y1="60" x2="680.0" y2="274" stroke="#1f2328" stroke-dasharray="4 3"/>
+<line x1="636.1035296243097" y1="87.0" x2="724.1591768920773" y2="87.0" stroke="#0969da" stroke-width="2"/>
+<line x1="636.1035296243097" y1="82.0" x2="636.1035296243097" y2="92.0" stroke="#0969da" stroke-width="2"/>
+<line x1="724.1591768920773" y1="82.0" x2="724.1591768920773" y2="92.0" stroke="#0969da" stroke-width="2"/>
+<circle cx="679.4771122632842" cy="87.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
+<line x1="618.5071725762059" y1="121.0" x2="816.134586245465" y2="121.0" stroke="#0969da" stroke-width="2"/>
+<line x1="618.5071725762059" y1="116.0" x2="618.5071725762059" y2="126.0" stroke="#0969da" stroke-width="2"/>
+<line x1="816.134586245465" y1="116.0" x2="816.134586245465" y2="126.0" stroke="#0969da" stroke-width="2"/>
+<circle cx="712.6536712599092" cy="121.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
+<line x1="619.9974382296107" y1="155.0" x2="705.2901274349942" y2="155.0" stroke="#0969da" stroke-width="2"/>
+<line x1="619.9974382296107" y1="150.0" x2="619.9974382296107" y2="160.0" stroke="#0969da" stroke-width="2"/>
+<line x1="705.2901274349942" y1="150.0" x2="705.2901274349942" y2="160.0" stroke="#0969da" stroke-width="2"/>
+<circle cx="662.8888327649718" cy="155.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
+<line x1="680.5867719126055" y1="189.0" x2="782.2381710458299" y2="189.0" stroke="#0969da" stroke-width="2"/>
+<line x1="680.5867719126055" y1="184.0" x2="680.5867719126055" y2="194.0" stroke="#0969da" stroke-width="2"/>
+<line x1="782.2381710458299" y1="184.0" x2="782.2381710458299" y2="194.0" stroke="#0969da" stroke-width="2"/>
+<circle cx="729.8223288274553" cy="189.0" r="5" fill="#0969da" stroke="#0969da" stroke-width="2"/>
+<line x1="742.2995782082796" y1="223.0" x2="840.0454680784683" y2="223.0" stroke="#8c959f" stroke-width="2"/>
+<line x1="742.2995782082796" y1="218.0" x2="742.2995782082796" y2="228.0" stroke="#8c959f" stroke-width="2"/>
+<line x1="840.0454680784683" y1="218.0" x2="840.0454680784683" y2="228.0" stroke="#8c959f" stroke-width="2"/>
+<circle cx="791.7788567351281" cy="223.0" r="5" fill="#ffffff" stroke="#8c959f" stroke-width="2"/>
+<line x1="685.7401221850622" y1="257.0" x2="761.194955561423" y2="257.0" stroke="#8c959f" stroke-width="2"/>
+<line x1="685.7401221850622" y1="252.0" x2="685.7401221850622" y2="262.0" stroke="#8c959f" stroke-width="2"/>
+<line x1="761.194955561423" y1="252.0" x2="761.194955561423" y2="262.0" stroke="#8c959f" stroke-width="2"/>
+<circle cx="722.5476991308084" cy="257.0" r="5" fill="#ffffff" stroke="#8c959f" stroke-width="2"/>
+<text x="730.0" y="312" text-anchor="middle" fill="#59636e">Paired difference (points)</text>
 </svg>

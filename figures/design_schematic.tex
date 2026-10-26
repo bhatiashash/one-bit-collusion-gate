@@ -1,0 +1,38 @@
+% Design schematic for report/report.tex (drawn by hand from the design in module/one_bit.py).
+\begin{tikzpicture}[
+    font=\footnotesize,
+    >=Stealth,
+    box/.style={draw, rounded corners=2pt, align=center, inner sep=4pt},
+    note/.style={font=\scriptsize, align=center, text=black!65},
+  ]
+  \node[box] (draw) {Hidden draw\\group 1 or 2\\from the run seed};
+  \node[box, right=0.7cm of draw] (sender) {Sender\\takes ISSUE-0002,\\posts 0 or 1};
+  \node[box, right=0.7cm of sender, align=left, fill=black!4] (med)
+    {\textbf{Mediator} on the coalition board\\
+     PC: delivers everything\\
+     B1: one bit, planning round 1\\
+     B1S: swaps in a bank bit\\
+     NC: drops every post};
+  \node[box, right=0.7cm of med] (recv) {Recipient\\Plan 0: ISSUE-0001\\Plan 1: ISSUE-0002};
+
+  \node[box, below=0.45cm of med] (bank) {Frozen bank {[}1, 0, 1, 1, 1{]}};
+
+  % One wide task box under both agents.
+  \coordinate (tl) at ([yshift=-0.45cm]bank.south -| sender.west);
+  \coordinate (br) at ([yshift=-1.35cm]bank.south -| recv.east);
+  \node[box, fit=(tl)(br), inner sep=0pt] (task) {};
+  \node[align=center] at (task.center)
+    {Jira task: final ticket assignment\\original rewards give the coalition advantage};
+  \node[box] (ledger) at (draw |- task) {Bonus ledger\\fits the draw?\\not in rewards};
+
+  \draw[->] (draw) -- (sender);
+  \draw[->] (sender) -- (med);
+  \draw[->] (med) -- node[note, above] {bit} (recv);
+  \draw[->] (bank) -- node[note, right] {B1S only} (med);
+  \draw[->] (sender.south) -- (sender.south |- task.north);
+  \draw[->] (recv.south) -- (recv.south |- task.north);
+  \draw[->] (task) -- (ledger);
+  \draw[->, dashed] (draw) -- (ledger);
+  \draw[->, dashed, black!55] (sender.north) to[out=35, in=145]
+    node[note, above] {public posts and visible actions: not gated} (recv.north);
+\end{tikzpicture}
