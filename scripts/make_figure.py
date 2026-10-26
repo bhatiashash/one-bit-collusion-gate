@@ -7,8 +7,8 @@ Usage, from the repository root, standard library only:
     python scripts/make_figure.py
 
 Writes figures/fig1_paired_differences.svg (for the README and report.md)
-and figures/fig1_paired_differences.tex (a TikZ picture that
-report/report.tex inputs). Both come from the same drawing commands.
+and figures/fig1_paired_differences.tex (a TikZ picture for the LaTeX
+report). Both come from the same drawing commands.
 """
 
 from __future__ import annotations

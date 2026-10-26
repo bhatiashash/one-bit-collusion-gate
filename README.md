@@ -25,7 +25,6 @@ The headline effect is not proven on any model. With 30 paired games per arm on 
 | `docs/` | The execution plan, the freeze note with its dated amendments and execution notes, and `release-hashes.txt`. |
 | `SPRINT_CHANGES.md` | Pre-existing versus new code, the starter commit, and the run log. |
 | `report.md` | The sprint report. |
-| `report/` | The report in the official Apart template: `report.tex` and the compiled `report.pdf`, with the GPT-5 mini results included. |
 
 ## Check the numbers without rerunning anything
 
