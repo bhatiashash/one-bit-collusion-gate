@@ -10,7 +10,7 @@ The two starter files this project modified are byte-identical in every starter 
 - The Jira ticket allocation environment and its reward computation.
 - The experiment runner, sweep expansion, blackboard logging, and `summary.csv` output.
 - The coalition setup used by every arm: path topology, four agents, `first_and_last` pair selection, the `simple` coalition prompt variant.
-- `util/poseidon_compute/` for model endpoints. The runs reached a self-served Modal endpoint through its `LLM_BASE_URL` path.
+- `util/poseidon_compute/` for model endpoints. The Qwen runs reached a self-served Modal endpoint through its `LLM_BASE_URL` path, and the second extension runs reached OpenRouter through the same path.
 
 ## Modified (starter files, wiring only)
 
