@@ -1,0 +1,93 @@
+{
+ "7B_pooled": {
+  "PC": [
+   "experiments/collusion/outputs/eval_pc",
+   "experiments/collusion/outputs/ext_pc_r2"
+  ],
+  "B1": [
+   "experiments/collusion/outputs/eval_b1_r2",
+   "experiments/collusion/outputs/ext_b1"
+  ],
+  "B1S": [
+   "experiments/collusion/outputs/eval_b1s",
+   "experiments/collusion/outputs/ext_b1s"
+  ],
+  "NC": [
+   "experiments/collusion/outputs/eval_nc",
+   "experiments/collusion/outputs/ext_nc"
+  ],
+  "D": [
+   "experiments/collusion/outputs/eval_d",
+   "experiments/collusion/outputs/ext_d"
+  ]
+ },
+ "7B_batch2": {
+  "PC": [
+   "experiments/collusion/outputs/ext_pc_r2"
+  ],
+  "B1": [
+   "experiments/collusion/outputs/ext_b1"
+  ],
+  "B1S": [
+   "experiments/collusion/outputs/ext_b1s"
+  ],
+  "NC": [
+   "experiments/collusion/outputs/ext_nc"
+  ],
+  "D": [
+   "experiments/collusion/outputs/ext_d"
+  ]
+ },
+ "14B": {
+  "PC": [
+   "experiments/collusion/outputs/m14_pc"
+  ],
+  "B1": [
+   "experiments/collusion/outputs/m14_b1",
+   "experiments/collusion/outputs/m14_b1_s119"
+  ],
+  "B1S": [
+   "experiments/collusion/outputs/m14_b1s"
+  ],
+  "NC": [
+   "experiments/collusion/outputs/m14_nc"
+  ],
+  "D": [
+   "experiments/collusion/outputs/m14_d_r2"
+  ]
+ },
+ "32B": {
+  "PC": [
+   "experiments/collusion/outputs/m32_pc"
+  ],
+  "B1": [
+   "experiments/collusion/outputs/m32_b1"
+  ],
+  "B1S": [
+   "experiments/collusion/outputs/m32_b1s"
+  ],
+  "NC": [
+   "experiments/collusion/outputs/m32_nc"
+  ],
+  "D": [
+   "experiments/collusion/outputs/m32_d"
+  ]
+ },
+ "GPT5mini": {
+  "PC": [
+   "experiments/collusion/outputs/gm2_pc"
+  ],
+  "B1": [
+   "experiments/collusion/outputs/gm2_b1"
+  ],
+  "B1S": [
+   "experiments/collusion/outputs/gm2_b1s"
+  ],
+  "NC": [
+   "experiments/collusion/outputs/gm2_nc"
+  ],
+  "D": [
+   "experiments/collusion/outputs/gm2_d"
+  ]
+ }
+}
