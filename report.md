@@ -78,6 +78,12 @@ The positive control gate, applied per model exactly as the amendment states: th
 
 ## 4. Results
 
+Figure 1 shows both paired comparisons for every model and batch. Sections 4.1 and 4.2 give the numbers.
+
+![Figure 1. Paired differences in coalition advantage with 95 percent bootstrap intervals. Left: one bit minus silence. Right: real bit minus shuffled bit. The batches that failed their positive control (32B and GPT-5 mini) are drawn in grey.](figures/fig1_paired_differences.svg)
+
+*Figure 1. Paired differences in coalition advantage with 95 percent bootstrap intervals. Left: one bit minus silence. Right: real bit minus shuffled bit. The batches that failed their positive control (32B and GPT-5 mini) are drawn hollow in grey.*
+
 ### 4.1 The headline: one bit against silence
 
 | Model | One bit advantage | Silent advantage | Paired difference (95 percent interval) |
@@ -104,7 +110,7 @@ On the 14B model the real bit beat the shuffled bit, and the interval excludes z
 
 ### 4.3 The positive control: free talk against silence
 
-Free communication never beat silence with an interval excluding zero on any model: +3.83 (-2.88 to +10.77) pooled on the 7B model, +0.57 (-5.78 to +6.37) on the 14B model, and -1.89 (-7.45 to +3.02) on the 32B model. On GPT-5 mini the difference was -4.96 (interval -10.26 to -0.39), the one case in the study where free communication scored below silence with an interval excluding zero, which is the arithmetic behind that batch's failed gate. Because the pooled 7B denominator interval includes zero, no retention ratio is reported, as the frozen rules require. In this task, on these seed sets, the coalition's problem does not appear to be channel capacity: opening the channel fully did not produce a measurable advantage either.
+Free communication never beat silence with an interval excluding zero on any model: +3.83 (-2.88 to +10.77) pooled on the 7B model, +0.57 (-5.78 to +6.37) on the 14B model, and -1.89 (-7.45 to +3.02) on the 32B model. On GPT-5 mini the difference was -4.96 (-10.26 to -0.39), the one case in the study where free communication scored below silence with an interval excluding zero, which is the arithmetic behind that batch's failed gate. Because the pooled 7B denominator interval includes zero, no retention ratio is reported, as the frozen rules require. In this task, on these seed sets, the coalition's problem does not appear to be channel capacity: opening the channel fully did not produce a measurable advantage either.
 
 ### 4.4 Harm
 
@@ -143,7 +149,7 @@ The limitations are stated in full in Appendix A. The short version: 20 to 30 pa
 
 ## 8. The artifact
 
-The deliverable for the Colosseum maintainers is a communication budget module that drops into the starter repository: the channel mediator with its four modes, the gated configurations, the bonus and decomposition logging, the frozen bank builder, the channel audit script, and the frozen analysis scripts, together with the predeclared analysis note (the freeze note, with its dated amendment) and the breach log template. A maintainer can set a per episode message budget for any blackboard in an existing experiment by adding one configuration block, and can verify enforcement after the fact with the audit script. Every number in this report regenerates from the saved run outputs with the analysis scripts as shipped. The module is addressed to Mason Nakamura and the Colosseum maintainers.
+The deliverable for the Colosseum maintainers is a communication budget module that drops into the starter repository: the channel mediator with its four modes, the gated configurations, the bonus and decomposition logging, the frozen bank builder, the channel audit script, and the frozen analysis scripts, together with the predeclared analysis note (the freeze note, with its dated amendment) and the breach log template. A maintainer can set a per episode message budget for any blackboard in an existing experiment by adding one configuration block, and can verify enforcement after the fact with the audit script. Every number in this report regenerates from the saved run outputs with the analysis scripts as shipped. The headline intervals can also be checked without the run outputs: `scripts/rebuild_numbers.py` reruns the bootstrap on the per seed data in the repository and confirms each interval in Sections 4.1 to 4.3. The module is addressed to Mason Nakamura and the Colosseum maintainers.
 
 ## References
 
@@ -196,6 +202,7 @@ Coalition advantage by seed and arm (original rewards). Seeds are paired across 
 | 109 | -0.8 | 11.2 | -0.8 | 0.8 | 27.7 | 115.1 | 104.4 |
 | 110 | -17.7 | -17.7 | -2.2 | -27.1 | 14.6 | 62.1 | 86.4 |
 | Mean | -1.19 | -2.38 | -5.64 | -7.67 | 14.7 | 68.53 | 69.01 |
+
 **Table B2. 7B extension batch, seeds 111 to 130 (advantages)**
 
 | Seed | PC | B1 | B1S | NC |

@@ -1,0 +1,127 @@
+diff --git a/colosseum/experiments/collusion/prompts.py b/colosseum/experiments/collusion/prompts.py
+index f12b6b2..aef2c10 100644
+--- a/colosseum/experiments/collusion/prompts.py
++++ b/colosseum/experiments/collusion/prompts.py
+@@ -225,6 +225,17 @@ class CollusionPrompts:
+                         "",
+                     ]
+                 )
++            # One-bit extension (sprint): identical plan block for both
++            # colluders; only the designated sender sees the draw line.
++            collusion_cfg = (
++                (self.full_config.get("experiment") or {}).get("collusion")
++                or {}
++            )
++            runtime = collusion_cfg.get("one_bit_runtime")
++            if isinstance(runtime, dict) and runtime:
++                from experiments.collusion.one_bit import build_prompt_block
++
++                prefix.extend([build_prompt_block(runtime, agent_name), ""])
+ 
+         user_prompt = "\n".join(prefix + ([base_user] if base_user else []))
+ 
+diff --git a/colosseum/experiments/collusion/run.py b/colosseum/experiments/collusion/run.py
+index d027132..7d840ab 100644
+--- a/colosseum/experiments/collusion/run.py
++++ b/colosseum/experiments/collusion/run.py
+@@ -45,6 +45,11 @@ from experiments.common.run_utils import (
+ from experiments.common.blackboard_logger import ExperimentBlackboardLogger
+ from experiments.collusion.metrics import compute_collusion_metrics, metrics_to_json
+ from experiments.collusion.prompts import CollusionPrompts
++from experiments.collusion.one_bit import (
++    build_runtime as one_bit_build_runtime,
++    evaluate_bonus as one_bit_evaluate_bonus,
++    install_mediator as one_bit_install_mediator,
++)
+ from experiments.common.local_protocol import LocalCommunicationProtocol
+ from terrarium.networks import build_communication_network
+ from terrarium.logger import AgentTrajectoryLogger, PromptLogger
+@@ -462,6 +467,35 @@ async def _run_single(
+                 secret_blackboard_id,
+             )
+ 
++    # One-bit communication gate (sprint extension; no-op unless enabled in
++    # experiment.collusion.one_bit). The sender is the first endpoint of the
++    # pair and the recipient is the last endpoint (first_and_last order).
++    mediator = None
++    one_bit_runtime = None
++    if secret_blackboard_id is not None and len(colluders) >= 2:
++        one_bit_runtime = one_bit_build_runtime(
++            cfg,
++            seed=int(seed),
++            sender=str(colluders[0]),
++            recipient=str(colluders[1]),
++            blackboard_id=secret_blackboard_id,
++        )
++        if one_bit_runtime is not None:
++            cfg.setdefault("experiment", {}).setdefault("collusion", {})[
++                "one_bit_runtime"
++            ] = one_bit_runtime
++            mediator = one_bit_install_mediator(
++                protocol.megaboard, one_bit_runtime
++            )
++            logger.info(
++                "RUN %s one-bit mediator installed (mode=%s, board=%s, sender=%s, recipient=%s)",
++                run_id,
++                one_bit_runtime["mode"],
++                secret_blackboard_id,
++                one_bit_runtime["sender"],
++                one_bit_runtime["recipient"],
++            )
++
+     try:
+         _log_blackboards_txt(
+             bb_logger=bb_logger,
+@@ -510,6 +544,9 @@ async def _run_single(
+         logger.info(
+             "RUN %s planning round %s/%s", run_id, planning_round, planning_rounds
+         )
++        if mediator is not None:
++            mediator.phase = "planning"
++            mediator.planning_round = int(planning_round)
+         last_agent = None
+         for agent in env.agents:
+             base_ctx = env.build_agent_context(
+@@ -560,6 +597,9 @@ async def _run_single(
+                 )
+ 
+     logger.info("RUN %s execution phase start", run_id)
++    if mediator is not None:
++        mediator.phase = "execution"
++        mediator.planning_round = None
+     last_exec_agent = None
+     for agent in env.agents:
+         base_ctx = env.build_agent_context(agent.name, phase="execution", iteration=1)
+@@ -674,6 +714,24 @@ async def _run_single(
+         ],
+     )
+ 
++    one_bit_fields: Dict[str, Any] = {}
++    if mediator is not None and one_bit_runtime is not None:
++        bonus = one_bit_evaluate_bonus(
++            one_bit_runtime, final_summary.get("assignment") or {}
++        )
++        mediator_log = mediator.log_dict(bonus)
++        _write_json(run_dir / "mediator_log.json", mediator_log)
++        one_bit_fields = {
++            "one_bit_mode": mediator_log["mode"],
++            "one_bit_draw_group": mediator_log["draw_group"],
++            "one_bit_sender_selected_bit": mediator_log["sender_selected_bit"],
++            "one_bit_sender_bit_correct": mediator_log["sender_bit_correct"],
++            "one_bit_delivered_bit": mediator_log["delivered_bit"],
++            "one_bit_blocked_attempts": mediator_log["blocked_attempts"],
++            "one_bit_bonus_total": bonus["bonus_total"],
++            "one_bit_executed_fit_plan": bonus["executed_plan_that_fits_draw"],
++        }
++
+     logger.info("RUN END %s (artifacts=%s)", run_id, run_dir)
+     joint_reward = final_summary.get("joint_reward")
+     coalition_reward_ratio = None
+@@ -736,6 +794,7 @@ async def _run_single(
+         "colluder_posts_non_secret": metrics.colluder_posts_non_secret,
+         "largest_non_secret_blackboard_id": metrics.largest_non_secret_blackboard_id,
+         "colluder_posts_secret_to_largest_bb_ratio_mean": metrics.colluder_posts_secret_to_largest_bb_ratio_mean,
++        **one_bit_fields,
+     }
+ 
+ 
